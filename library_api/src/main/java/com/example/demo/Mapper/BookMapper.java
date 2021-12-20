@@ -7,9 +7,12 @@ import com.example.demo.Model.dto.UserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface BookMapper {
     BookMapper BOOK_MAPPER = Mappers.getMapper(BookMapper.class);
 
     BookDTO toBookDto(Book book);
+    List<BookDTO> toBookDtoList(List<Book> book);
 }
