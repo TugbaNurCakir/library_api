@@ -90,6 +90,9 @@ public class RegistrationServiceTest {
         //When
         //Then
         Assertions.assertThrows(BusinessException.class, ()-> sut.register(registrationRequest));
+        verify(registrationRepository,never()).save(any(Registration.class));
+        verify(bookService,never()).updateAvailability(anyInt(),anyBoolean());
+        verify(userService,never()).incrementRegistrationsCount(anyInt());
     }
 
     @Test
